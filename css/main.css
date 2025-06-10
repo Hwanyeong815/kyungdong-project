@@ -57,15 +57,17 @@
 }
 #mainVisual .mainBanner li .more {
     margin-top: 50px;
+    /* display: inline-block; */
     width: 200px;
     height: 50px;
     border-radius: 30px;
     border: 1px solid #fff;
     box-sizing: border-box;
+    text-align: center;
+    line-height: 50px;
 }
 #mainVisual .mainBanner li .more a {
     color: #fff;
-    text-align: center;
 }
 #mainVisual .btn-wrap {
     /* width: 100%;
@@ -149,13 +151,45 @@
 }
 
 /* 그룹선택자 */
-.main .con3 .more,
-.main .con4 .more {
-}
 .main .con3 .more a,
 .main .con4 .more a {
+    display: inline-block;
+    border: 1px solid #fff;
+    width: 180px;
+    height: 50px;
+    border-radius: 25px;
+    line-height: 50px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.main .con3 .more a::before,
+.main .con4 .more a::before {
+    content: '';
+    display: block;
+    width: 220px;
+    height: 70px;
+    background: #fff;
+    position: absolute;
+    left: -250px;
+    top: -10px;
+    transition: 0.4s ease-out;
+    transform: skewX(-15deg);
+    z-index: 10;
+}
+.main .con3 .more a:hover::before,
+.main .con4 .more a:hover::before {
+    left: -10px;
+}
+.main .con3 .more a:hover span,
+.main .con4 .more a:hover span {
+    position: relative;
+    z-index: 20;
+    color: #000;
 }
 
+.main .con1 {
+}
 .main .con1 h2 {
     text-align: center;
     margin-bottom: 2px;
@@ -277,4 +311,20 @@
     margin-top: 25px;
     margin-bottom: 20px;
     text-align: center;
+}
+
+.main .con3 {
+    position: relative;
+}
+.main .con3::after {
+    content: '';
+    display: block;
+    width: 40%;
+    /* height: 100vh; */
+    height: 100%;
+    background: #07255d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -10;
 }
