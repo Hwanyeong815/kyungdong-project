@@ -1,0 +1,280 @@
+#mainVisual {
+    width: 100%;
+    height: 1080px;
+    position: relative;
+
+    /* 화살표 */
+}
+#mainVisual .mainBanner {
+    width: 100%;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    /* 가로스크롤 방지 */
+}
+#mainVisual .mainBanner li {
+    width: 100%;
+    height: 1080px;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+}
+#mainVisual .mainBanner li:nth-child(1) {
+    background-image: url(/images/main01_pc.jpg);
+    left: 0;
+}
+#mainVisual .mainBanner li:nth-child(2) {
+    background-image: url(/images/main02_pc.jpg);
+}
+#mainVisual .mainBanner li:nth-child(3) {
+    background-image: url(/images/main03_pc.jpg);
+}
+#mainVisual .mainBanner li:nth-child(4) {
+    background-image: url(/images/main04_pc.jpg);
+}
+#mainVisual .mainBanner li .inner {
+    width: 1160px;
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+/* 비주얼에서 텍스트 영역 */
+#mainVisual .mainBanner li h2 {
+    font-size: 40px;
+    line-height: 1.2;
+}
+#mainVisual .mainBanner li h2 span {
+}
+#mainVisual .mainBanner li h2 + p {
+    font-size: 24px;
+}
+#mainVisual .mainBanner li h2 + p span {
+}
+#mainVisual .mainBanner li .more {
+    margin-top: 50px;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+}
+#mainVisual .mainBanner li .more a {
+    color: #fff;
+    text-align: center;
+}
+#mainVisual .btn-wrap {
+    /* width: 100%;
+    height: 100px;
+    border: 1px solid #000;
+    position: relative; */
+}
+#mainVisual .btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;
+    height: 70px;
+    border: 1px solid #fff;
+    background-color: transparent;
+}
+#mainVisual .btn i {
+    font-size: 30px;
+    color: #fff;
+}
+#mainVisual .prev {
+    left: 100px;
+}
+#mainVisual .next {
+    right: 100px;
+}
+#mainVisual .mouse {
+}
+.main {
+}
+.main h2 {
+    font-size: 43px;
+}
+.main p {
+}
+.main .more {
+}
+
+.main .con1 .inner,
+.main .con2 .inner {
+    padding: 120px 0;
+}
+.main .con1 .more,
+.main .con2 .more {
+    text-align: center;
+}
+.main .con1 .more a,
+.main .con2 .more a {
+    display: inline-block;
+    border: 1px solid #000;
+    width: 180px;
+    height: 50px;
+    border-radius: 25px;
+    line-height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+.main .con1 .more a:hover span,
+.main .con2 .more a:hover span {
+    position: relative;
+    z-index: 20;
+    color: #fff;
+}
+.main .con1 .more a::before,
+.main .con2 .more a::before {
+    content: '';
+    display: block;
+    width: 220px;
+    height: 70px;
+    background: orange;
+    position: absolute;
+    left: -250px;
+    top: -10px;
+    transition: 0.4s ease-out;
+    transform: skewX(-15deg);
+    z-index: 10;
+}
+.main .con1 .more a:hover::before,
+.main .con2 .more a:hover::before {
+    left: -10px;
+}
+
+/* 그룹선택자 */
+.main .con3 .more,
+.main .con4 .more {
+}
+.main .con3 .more a,
+.main .con4 .more a {
+}
+
+.main .con1 h2 {
+    text-align: center;
+    margin-bottom: 2px;
+}
+.main .con1 h2 + p {
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 50px;
+}
+.main .con1 ul {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.main .con1 ul li {
+    width: 270px;
+}
+.main .con1 ul li a {
+}
+.main .con1 ul li a div {
+    width: 270px;
+    height: 365px;
+    overflow: hidden;
+}
+.main .con1 ul li a div img {
+    transition: 0.7s;
+    width: 100%;
+}
+.main .con1 ul li a div:hover img {
+    transform: scale(1.1);
+}
+
+.main .con1 ul li a h3 {
+    /* padding-top: 20px; */
+    margin: 15px 0;
+    font-size: 20px;
+
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: 3px solid RGB(239 239 239);
+}
+
+.main .con1 ul li a h3 span {
+    display: block;
+}
+/* .main .con1 ul li a h3::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: RGB(239 239 239);
+    left: 0;
+    bottom: -20px;
+    width: 100%;
+    height: 3px;
+} */
+.main .con1 ul li a p {
+    padding-top: 40px;
+    word-break: keep-all;
+}
+
+.main .con2 {
+    position: relative;
+}
+.main .con2::after {
+    content: '';
+    width: 100%;
+    height: 50%;
+    background: #f6f6f6;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* con2 배경이미지나 색이 없을 경우 가능 */
+    z-index: -10;
+}
+.main .con2 h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.main .con2 ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.main .con2 ul li {
+}
+.main .con2 ul li a {
+    display: block;
+    width: 580px;
+    height: 547px;
+    position: relative;
+    overflow: hidden;
+}
+.main .con2 ul li a > img {
+    transition: 0.5s;
+}
+.main .con2 ul li a:hover > img {
+    transform: scale(1.1);
+}
+.main .con2 ul li a .txt {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+.main .con2 ul li a .txt strong {
+    font-size: 28px;
+}
+.main .con2 ul li a .txt h3 {
+    font-size: 43px;
+    padding-bottom: 35px;
+}
+
+.main .con2 ul li a + p {
+    font-size: 17px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+}
