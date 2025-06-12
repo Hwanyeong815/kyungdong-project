@@ -3,20 +3,59 @@ const mainBanner = () => {};
 //이벤트배너
 const eventBanner = () => {};
 
+// const sectionPage1 = () => {
+//     const $con0 = get('#mainVisual');
+//     const $con1 = get('.main .con1');
+//     const $con2 = get('.main .con2');
+//     const $con3 = get('.main .con3');
+//     const $con4 = get('.main .con4');
+//     const $menulis = getAll('.menu li');
+
+//     // console.log($con4.offsetTop);
+//     // window.scrollTo({ top: $con2.offsetTop, behavior: 'smooth' });
+//     $menulis[0].addEventListener('click', (e) => {
+//         ty = $con0.offsetTop;
+//         window.scrollTo({ top: ty, behavior: 'smooth' });
+//     });
+//     $menulis[1].addEventListener('click', (e) => {
+//         ty = $con1.offsetTop;
+//         window.scrollTo({ top: ty, behavior: 'smooth' });
+//     });
+//     $menulis[2].addEventListener('click', (e) => {
+//         ty = $con2.offsetTop;
+//         window.scrollTo({ top: ty, behavior: 'smooth' });
+//     });
+//     $menulis[3].addEventListener('click', (e) => {
+//         ty = $con3.offsetTop;
+//         window.scrollTo({ top: ty, behavior: 'smooth' });
+//     });
+//     $menulis[4].addEventListener('click', (e) => {
+//         ty = $con4.offsetTop;
+//         window.scrollTo({ top: ty, behavior: 'smooth' });
+//     });
+// };
+
 const sectionPage = () => {
-    const $con1 = get('.main .con1');
-    const $con2 = get('.main .con2');
-    const $con3 = get('.main .con3');
-    const $con4 = get('.main .con4');
-    // console.log($con1.offsetTop);
-    // 스크롤 높이 1080
-    // console.log($con2.offsetTop);
-    // 스크롤 높이 2105
-    // console.log($con3.offsetTop);
-    // 스크롤 높이 3157
-    // console.log($con4.offsetTop);
-    // 스크롤 높이 4237
-    window.scrollTo({ top: $con2.offTop, behavior: 'smooth' });
+    const $con0 = get('#mainVisual');
+    const $cons = getAll('.main .con');
+    // console.log($cons[1].offsetTop);
+    const posY = [];
+    posY.push($con0.offsetTop);
+    $cons.forEach((item) => {
+        posY.push(item.offsetTop);
+    });
+    console.log(posY);
+
+    const $menulis = getAll('.menu li');
+
+    $menulis.forEach((itemLi, idx) => {
+        itemLi.addEventListener('click', (e) => {
+            window.scrollTo({ top: posY[idx], behavior: 'smooth' });
+
+            $menulis.forEach((item) => item.classList.remove('on'));
+            itemLi.classList.add('on');
+        });
+    });
 };
 
 const menuBar = () => {
