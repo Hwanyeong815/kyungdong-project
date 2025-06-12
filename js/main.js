@@ -35,12 +35,15 @@ const eventBanner = () => {};
 //     });
 // };
 
+// 우측에 따라오는 서브메뉴를 눌렀을때 이동하기
 const sectionPage = () => {
     const $con0 = get('#mainVisual');
     const $cons = getAll('.main .con');
     // console.log($cons[1].offsetTop);
     const posY = [];
+    // posY에 메인비쥬얼 위치 넣고
     posY.push($con0.offsetTop);
+    // 나머지 con들의 스크롤높이값 넣기
     $cons.forEach((item) => {
         posY.push(item.offsetTop);
     });
@@ -52,6 +55,7 @@ const sectionPage = () => {
         itemLi.addEventListener('click', (e) => {
             window.scrollTo({ top: posY[idx], behavior: 'smooth' });
 
+            // 클릭했을 때 나머지 원은 사라지고, 클릭한 건 나타나고
             $menulis.forEach((item) => item.classList.remove('on'));
             itemLi.classList.add('on');
         });
@@ -60,12 +64,60 @@ const sectionPage = () => {
 
 const menuBar = () => {
     const $menu = get('.menu');
-
+    const $con0 = get('#mainVisual');
+    const $cons = getAll('.main .con');
+    const posY = [];
+    posY.push($con0.offsetTop);
+    $cons.forEach((item) => {
+        posY.push(item.offsetTop);
+    });
+    let ty = 0;
+    const $menulis = getAll('.menu li');
+    $menulis.forEach((itemLi, idx) => {
+        itemLi.addEventListener('click', (e) => {
+            window.scrollTo({ top: posY[idx], behavior: 'smooth' });
+            //모두떼기 -> forEach
+            // 페이지마다 원 붙히는 방법1
+            // $menulis.forEach((item) => item.classList.remove('on'));
+            // itemLi.classList.add('on');
+        });
+    });
     window.addEventListener('scroll', (e) => {
-        //window.scrollY , window.pageYOffset
-        // console.log(window.scrollY);
         ty = window.scrollY;
-        if (ty > 300) {
+        // 페이지마다 원 붙히는 방법3
+        for (let i = 0; i < $menulis.length; i++) {
+            if (ty >= posY[i]) {
+                $menulis.forEach((item) => item.classList.remove('on'));
+                $menulis[i].classList.add('on');
+            }
+        }
+
+        //  페이지마다 원 붙히는방법2
+        // window.addEventListener('scroll', (e) => {
+        //     ty = window.scrollY;
+
+        //     if (ty >= posY[0]) {
+        //         $menulis.forEach((item) => item.classList.remove('on'));
+        //         $menulis[0].classList.add('on');
+        //     }
+        //     if (ty >= posY[1]) {
+        //         $menulis.forEach((item) => item.classList.remove('on'));
+        //         $menulis[1].classList.add('on');
+        //     }
+        //     if (ty >= posY[2]) {
+        //         $menulis.forEach((item) => item.classList.remove('on'));
+        //         $menulis[2].classList.add('on');
+        //     }
+        //     if (ty >= posY[3]) {
+        //         $menulis.forEach((item) => item.classList.remove('on'));
+        //         $menulis[3].classList.add('on');
+        //     }
+        //     if (ty >= posY[4]) {
+        //         $menulis.forEach((item) => item.classList.remove('on'));
+        //         $menulis[4].classList.add('on');
+        //     }
+
+        if (ty > 400) {
             $menu.classList.add('on');
         } else {
             $menu.classList.remove('on');

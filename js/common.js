@@ -10,6 +10,7 @@ const preventDefaultAnchor = () => {
 const topBar = () => {
     const $top = get('.top');
     const $header = get('#header');
+    // top버튼이 스크롤 할 때 나타나도록
     window.addEventListener('scroll', (e) => {
         //window.scrollY , window.pageYOffset
         // console.log(window.scrollY);
@@ -35,9 +36,31 @@ const navi = () => {
 };
 const familySite = () => {};
 
+const siteMap = () => {
+    // 사이트맵이 햄버거 메뉴 눌렀을 때 나타나도록
+    const $sitemap = get('.sitemap');
+    const $allmenu = get('.all-menu');
+    const $close = get('.close');
+    const $bg = get('.bg');
+
+    $allmenu.addEventListener('click', (e) => {
+        $sitemap.classList.add('on');
+        $bg.classList.add('on');
+    });
+    $close.addEventListener('click', (e) => {
+        $bg.classList.remove('on');
+        $sitemap.classList.remove('on');
+    });
+    $bg.addEventListener('click', (e) => {
+        $bg.classList.remove('on');
+        $sitemap.classList.remove('on');
+    });
+};
+
 const comInit = () => {
     navi();
     topBar();
+    siteMap();
 };
 
 (() => {
