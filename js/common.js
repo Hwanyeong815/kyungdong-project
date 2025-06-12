@@ -8,14 +8,20 @@ const preventDefaultAnchor = () => {
 
 const topBar = () => {
     const $top = get('.top');
+    const $header = get('#header');
     window.addEventListener('scroll', (e) => {
         //window.scrollY , window.pageYOffset
         // console.log(window.scrollY);
         ty = window.scrollY;
-        if (ty > 300) {
+        if (ty > 200) {
             $top.classList.add('on');
         } else {
             $top.classList.remove('on');
+        }
+        if (ty > 200) {
+            $header.classList.add('on');
+        } else {
+            $header.classList.remove('on');
         }
     });
 };

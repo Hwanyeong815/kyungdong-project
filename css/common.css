@@ -26,8 +26,11 @@
 #header.on {
     width: 100%;
     position: fixed;
+    transform: translateX(0%);
+    /* 스크롤할때 이상하지 않게 잡아줌 */
     left: 0;
     top: 0;
+    background: rgb(219, 219, 219);
 }
 #header .inner {
     height: 90px;
