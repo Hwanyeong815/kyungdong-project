@@ -11,38 +11,33 @@ const mainBanner = () => {
     $next.addEventListener('click', (e) => {
         current++;
         if (current > totalImage - 1) current = 0;
-        banner('next');
-        // banner(true);
+        banner();
     });
     $prev.addEventListener('click', (e) => {
         current--;
         if (current < 0) current = totalImage - 1;
-        banner('prev');
-        // banner(false);
+        banner();
     });
     //공통
-    const banner = (txt) => {
-        const num = txt === 'next' ? size : -size;
-        // const num = txt === true ? size : -size;
-        $bannerli[current].style.transition = '0s';
-        //순간이동
-        $bannerli[current].style.left = `${num}%`;
-        setTimeout(() => {
-            $bannerli[current].style.transition = '0.4s';
-            $bannerli[current].style.left = `0px`;
-            $bannerli[current].style.zIndex = 10;
-            $bannerli[current].classList.add('on');
-            // 선택된 화면이 오른쪽에서 나타남
-
-            $bannerli[old].style.left = `${num * -1}%`;
-            // $bannerli[old].style.left = `-${num}%`;
-            $bannerli[old].style.zIndex = 1;
-            $bannerli[old].classList.remove('on');
-
-            old = current; //이미 끝난 배너는 과거로 설정
-        }, 20); // transition 시간동일
+    const banner = () => {
+        // 현재는 0의 위치로
+        $bannerli[current].style.left = `0px`;
+        $bannerli[current].style.zIndex = 10;
+        $bannerli[current].classList.add('on');
+        // 과거는 -100%로 이동하기
+        $bannerli[old].style.left = `-${size}%`;
+        $bannerli[old].style.zIndex = 1;
+        $bannerli[old].classList.remove('on');
+        lastBanner(old);
+        old = current; //이미끝난 배너는 과거로 설정
     };
-    const lastBanner = (z) => {};
+
+    const lastBanner = (z) => {
+        setTimeout(() => {
+            // 맨앞으로 이동
+            $bannerli[z].style.left = `${size}%`;
+        }, 400); // transition 시간동일
+    };
 };
 
 const eventBanner = () => {};
